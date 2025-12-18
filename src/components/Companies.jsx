@@ -192,7 +192,7 @@ const Companies = () => {
               >
                 <img
                   src={burjLogo}
-                  alt="Burj Tech Consultancy"
+                  alt="BURJ Tech Consultancy"
                   className="w-full h-full object-contain"
                 />
               </motion.div>
@@ -200,7 +200,7 @@ const Companies = () => {
             </div>
 
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-4">
-              Burj Tech <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Consultancy</span>
+              BURJ Tech <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Consultancy</span>
             </h3>
 
             <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-6">
