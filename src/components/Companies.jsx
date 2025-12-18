@@ -57,9 +57,9 @@ const Companies = () => {
   const bg2Y = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   const divisions = [
-    { name: 'BTC Routes', logo: routesLogo, desc: 'Logistics & Transportation Solutions', color: 'from-blue-500 to-cyan-500', yTransform: btCard1Y },
-    { name: 'BTC Linx', logo: linxLogo, desc: 'Connectivity & Integration Platform', color: 'from-purple-500 to-pink-500', yTransform: btCard2Y },
-    { name: 'BTC ZoneT', logo: zonetLogo, desc: 'Technology & Innovation Hub', color: 'from-orange-500 to-red-500', yTransform: btCard3Y },
+    { name: 'BTC Routes', logo: routesLogo, desc: 'Logistics & Transportation Solutions', color: 'from-blue-500 to-cyan-500', yTransform: btCard1Y, url: 'https://www.btcroutes.com' },
+    { name: 'BTC Linx', logo: linxLogo, desc: 'Connectivity & Integration Platform', color: 'from-purple-500 to-pink-500', yTransform: btCard2Y, url: 'https://www.btclinx.com' },
+    { name: 'BTC ZoneT', logo: zonetLogo, desc: 'Technology & Innovation Hub', color: 'from-orange-500 to-red-500', yTransform: btCard3Y, url: '#' },
   ];
 
   return (
@@ -186,13 +186,16 @@ const Companies = () => {
           >
             <div className="inline-flex items-center gap-6 mb-8">
               <div className="w-20 h-px bg-gradient-to-r from-transparent to-blue-500" />
-              <motion.img
+              <motion.div
                 whileHover={{ scale: 1.1 }}
-                src={burjLogo}
-                alt="Burj Tech Consultancy"
-                className="w-28 h-28 object-contain"
-                style={{ filter: 'drop-shadow(0 0 2px white) drop-shadow(0 0 4px rgba(255,255,255,0.5))' }}
-              />
+                className="w-28 h-28 bg-white rounded-2xl p-1 shadow-lg"
+              >
+                <img
+                  src={burjLogo}
+                  alt="Burj Tech Consultancy"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
               <div className="w-20 h-px bg-gradient-to-l from-transparent to-purple-500" />
             </div>
 
@@ -200,9 +203,18 @@ const Companies = () => {
               Burj Tech <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Consultancy</span>
             </h3>
 
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-6">
               A technology powerhouse with three specialized divisions
             </p>
+
+            <a
+              href="https://www.burjtechconsultancy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 rounded-full text-white hover:border-white/30 hover:gap-3 transition-all"
+            >
+              Visit Website <FiArrowUpRight className="w-4 h-4" />
+            </a>
           </motion.div>
 
           {/* Cards - Staggered slide up based on scroll */}
@@ -225,20 +237,28 @@ const Companies = () => {
                   />
 
                   <div className="relative z-10">
-                    <motion.img
-                      whileHover={{ scale: 1.15 }}
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      src={division.logo}
-                      alt={division.name}
-                      className="w-20 h-20 object-contain mb-6"
-                      style={{ filter: 'drop-shadow(0 0 2px white) drop-shadow(0 0 4px rgba(255,255,255,0.5))' }}
-                    />
+                      className="w-20 h-20 bg-white rounded-2xl p-2 mb-6 shadow-lg"
+                    >
+                      <img
+                        src={division.logo}
+                        alt={division.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
 
                     <h4 className="text-2xl font-semibold text-white mb-3">{division.name}</h4>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">{division.desc}</p>
 
-                    <a href="#" className={`inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r ${division.color} bg-clip-text text-transparent`}>
-                      Learn more <FiArrowUpRight className="w-4 h-4" />
+                    <a
+                      href={division.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r ${division.color} bg-clip-text text-transparent hover:gap-3 transition-all`}
+                    >
+                      Visit Website <FiArrowUpRight className="w-4 h-4" />
                     </a>
 
                     <motion.div

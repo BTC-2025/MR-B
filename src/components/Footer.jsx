@@ -13,7 +13,7 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 lg:mb-0"
           >
-            <h3 className="text-2xl font-bold mb-2">Alex Carter</h3>
+            <h3 className="text-2xl font-bold mb-2">Mr. B</h3>
             <p className="text-gray-400">Entrepreneur & Startup Founder</p>
           </motion.div>
 
@@ -24,7 +24,7 @@ const Footer = () => {
             className="text-center lg:text-right"
           >
             <p className="text-gray-400 mb-2">
-              &copy; {new Date().getFullYear()} Carter Innovations Group. All rights reserved.
+              &copy; {new Date().getFullYear()} All rights reserved.
             </p>
             <p className="text-sm text-gray-500">
               Building the future, one venture at a time.

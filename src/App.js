@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Companies from './components/Companies';
 import SocialContact from './components/SocialContact';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -30,6 +31,7 @@ function App() {
               <About />
               <Companies />
               <SocialContact />
+              <Contact />
               <Footer />
             </div>
           </motion.div>
