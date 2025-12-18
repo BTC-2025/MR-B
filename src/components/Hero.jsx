@@ -139,7 +139,7 @@ const Hero = () => {
                         className="max-w-md space-y-4 mb-12"
                     >
                         <p className="text-gray-500 text-lg leading-relaxed">
-                            <span className="text-white font-medium">Mr. B</span> —
+                            <span className="text-white text-5xl font-bold">Mr. B</span> —
                             Transforming abstract concepts into tangible experiences.
                             Where innovation meets execution.
                         </p>
