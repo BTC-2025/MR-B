@@ -14,7 +14,7 @@ const Footer = () => {
             className="mb-8 lg:mb-0"
           >
             <h3 className="text-2xl font-bold mb-2">Mr. B</h3>
-            <p className="text-gray-400">Entrepreneur & Startup Founder</p>
+            <p className="text-gray-400">Entrepreneur & Managing Director</p>
           </motion.div>
 
           <motion.div

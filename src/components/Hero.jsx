@@ -234,17 +234,13 @@ const Hero = () => {
                                 style={{ transform: 'translateZ(80px)' }}
                             >
                                 <div className="bg-white/10 backdrop-blur-xl rounded-xl p-4 border border-white/10">
-                                    <div className="flex justify-between items-end">
-                                        <div>
+                                    <div className="flex justify-center items-center">
+                                        <div className="text-center">
                                             <p className="text-xs text-gray-400 uppercase tracking-wider">Status</p>
-                                            <p className="text-white font-medium flex items-center gap-2">
+                                            <p className="text-white font-medium flex items-center justify-center gap-2">
                                                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                                                 Available
                                             </p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-xs text-gray-400 uppercase tracking-wider">Based in</p>
-                                            <p className="text-white font-medium">San Francisco</p>
                                         </div>
                                     </div>
                                 </div>

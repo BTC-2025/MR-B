@@ -63,7 +63,7 @@ const Companies = () => {
   ];
 
   return (
-    <section ref={containerRef} className="relative bg-[#030303] py-32 overflow-hidden">
+    <section id="work" ref={containerRef} className="relative bg-[#030303] py-32 overflow-hidden">
 
       {/* Parallax Background Elements */}
       <motion.div style={{ y: bg1Y }} className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />

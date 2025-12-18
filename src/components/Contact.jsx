@@ -36,7 +36,7 @@ const Contact = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative bg-[#030303] py-32 overflow-hidden">
+        <section id="contact" ref={containerRef} className="relative bg-[#030303] py-32 overflow-hidden">
 
             {/* Animated background grid */}
             <div className="absolute inset-0 opacity-20">
