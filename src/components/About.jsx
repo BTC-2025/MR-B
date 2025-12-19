@@ -38,9 +38,9 @@ const About = () => {
   }, [mouseX, mouseY]);
 
   const metrics = [
-    { value: '15', suffix: '+', label: 'Years of Leadership', color: 'blue' },
-    { value: '50', suffix: '+', label: 'Countries Impacted', color: 'purple' },
-    { value: '1M', suffix: '+', label: 'Lives Touched', color: 'pink' },
+    { value: '10', suffix: '+', label: 'Years of Leadership', color: 'blue' },
+    { value: '5', suffix: '+', label: 'Countries Impacted', color: 'purple' },
+    { value: '20k', suffix: '+', label: 'Lives Touched', color: 'pink' },
   ];
 
   // Text reveal animation - word by word

@@ -142,7 +142,7 @@ const Companies = () => {
                 className="h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded mb-8"
               />
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-3">
-                B<span className="font-bold text-amber-400">Pictures</span>
+                <span className="font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">B</span>Pictures
               </h3>
               <p className="text-xl text-gray-400 font-light">
                 Cinematic Excellence & Visual Storytelling
@@ -200,7 +200,7 @@ const Companies = () => {
             </div>
 
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-4">
-              BURJ Tech <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Consultancy</span>
+              <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">BURJ</span> Tech Consultancy
             </h3>
 
             <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-6">
