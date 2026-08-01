@@ -5,6 +5,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 
 // Import logos
 import bPicturesLogo from '../assets/B (9).png';
+import betaSoftnetLogo from '../assets/logo.png';
 import burjLogo from '../assets/burj.png';
 import routesLogo from '../assets/routes.png';
 import linxLogo from '../assets/linx.png';
@@ -86,7 +87,7 @@ const Companies = () => {
       </div>
 
       {/* ============ BPictures Section ============ */}
-      <div ref={bPicturesRef} className="max-w-7xl mx-auto px-8 lg:px-16 mb-40">
+      <div ref={bPicturesRef} className="max-w-7xl mx-auto px-8 lg:px-16 mb-20">
         <motion.div style={{ scale: bpScale }} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Visual - Slides in from left */}
@@ -172,8 +173,40 @@ const Companies = () => {
       {/* Divider with scroll animation */}
       <motion.div
         style={{ scaleX: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]) }}
-        className="max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-40 origin-center"
+        className="max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8 origin-center"
       />
+
+      {/* Beta Softnet Logo */}
+      <motion.div
+        style={{
+          y: useTransform(scrollYProgress, [0.25, 0.4], [50, 0]),
+          opacity: useTransform(scrollYProgress, [0.25, 0.37], [0, 1])
+        }}
+        className="flex flex-col items-center justify-center mb-20 text-center px-4"
+      >
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          className="w-28 h-28 bg-white rounded-2xl p-1 shadow-lg"
+        >
+          <img
+            src={betaSoftnetLogo}
+            alt="Beta Softnet"
+            className="w-full h-full object-contain"
+          />
+        </motion.div>
+
+        <h3 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mt-6 mb-3">
+          <span 
+            className="font-bold bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 bg-clip-text text-transparent"
+            style={{ fontFamily: "'Saira Stencil One', sans-serif" }}
+          >
+            BETA
+          </span>
+        </h3>
+        <p className="text-xl text-gray-400 font-light max-w-xl leading-relaxed">
+          Let’s create the future together. Connect with us to explore opportunities!
+        </p>
+      </motion.div>
 
       {/* ============ Burj Tech Consultancy Section ============ */}
       <div ref={burjTechRef} className="max-w-7xl mx-auto px-8 lg:px-16">

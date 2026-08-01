@@ -1,7 +1,7 @@
 // src/components/Hero.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import heroImage from '../assets/mrb4.jpg';
+import heroImage from '../assets/MR.B.png';
 
 const Hero = () => {
     const [isLoaded, setIsLoaded] = useState(false);
