@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Footer = () => {
+const Footer = ({ setCurrentPage }) => {
   return (
     <footer className="bg-gray-900/80 backdrop-blur-sm border-t border-gray-800 py-12 px-6">
       <div className="container mx-auto">
@@ -42,7 +42,7 @@ const Footer = () => {
           <div className="flex justify-center space-x-6 text-gray-500 text-sm">
             <a href="#" className="hover:text-blue-400 transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="hover:text-blue-400 transition-colors duration-300">Terms of Service</a>
-            <a href="#" className="hover:text-blue-400 transition-colors duration-300">Contact</a>
+            <button onClick={() => setCurrentPage('contact')} className="hover:text-blue-400 transition-colors duration-300">Contact</button>
           </div>
         </motion.div>
       </div>

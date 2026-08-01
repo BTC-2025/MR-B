@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import heroImage from '../assets/MR.B.png';
 
-const Hero = () => {
+const Hero = ({ setCurrentPage }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const containerRef = useRef(null);
 
@@ -160,9 +160,9 @@ const Hero = () => {
                         transition={{ delay: 1.6, duration: 0.6 }}
                         className="flex gap-12"
                     >
-                        <a href="#work" className="group">
-                            <span className="text-sm text-gray-500 block mb-1">01</span>
-                            <span className="text-white font-medium group-hover:text-indigo-400 transition-colors">
+                        <button onClick={() => setCurrentPage('services')} className="group text-left">
+                            <span className="text-sm text-gray-500 block mb-1 text-left">01</span>
+                            <span className="text-white font-medium group-hover:text-indigo-400 transition-colors block">
                                 View Work
                             </span>
                             <motion.div
@@ -171,10 +171,10 @@ const Hero = () => {
                                 whileHover={{ width: '100%' }}
                                 transition={{ duration: 0.3 }}
                             />
-                        </a>
-                        <a href="#contact" className="group">
-                            <span className="text-sm text-gray-500 block mb-1">02</span>
-                            <span className="text-white font-medium group-hover:text-pink-400 transition-colors">
+                        </button>
+                        <button onClick={() => setCurrentPage('contact')} className="group text-left">
+                            <span className="text-sm text-gray-500 block mb-1 text-left">02</span>
+                            <span className="text-white font-medium group-hover:text-pink-400 transition-colors block">
                                 Let's Talk
                             </span>
                             <motion.div
@@ -183,7 +183,7 @@ const Hero = () => {
                                 whileHover={{ width: '100%' }}
                                 transition={{ duration: 0.3 }}
                             />
-                        </a>
+                        </button>
                     </motion.div>
                 </div>
 
