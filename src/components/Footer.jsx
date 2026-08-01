@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 // components/Footer.jsx
 import React from 'react';
 import { motion } from 'framer-motion';

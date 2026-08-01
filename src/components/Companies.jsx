@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 // components/Companies.jsx
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';

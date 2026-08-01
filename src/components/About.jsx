@@ -1,6 +1,6 @@
 // components/About.jsx
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue, useAnimationControls } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue } from 'framer-motion';
 
 const About = () => {
   const containerRef = useRef(null);
@@ -23,7 +23,6 @@ const About = () => {
   const y1 = useTransform(scrollYProgress, [0, 1], [200, -200]);
   const y2 = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.9]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -47,46 +46,7 @@ const About = () => {
   const sentence = "To make the world kinder, safer, and more equal for everyone.";
   const words = sentence.split(' ');
 
-  // Character scramble effect component
-  const ScrambleText = ({ text, delay = 0 }) => {
-    const [displayText, setDisplayText] = useState('');
-    const [isScrambling, setIsScrambling] = useState(true);
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    useEffect(() => {
-      if (!isInView) return;
-
-      let iteration = 0;
-      const targetText = text.toUpperCase();
-
-      const timer = setTimeout(() => {
-        const interval = setInterval(() => {
-          setDisplayText(
-            targetText
-              .split('')
-              .map((char, idx) => {
-                if (char === ' ') return ' ';
-                if (idx < iteration) return targetText[idx];
-                return chars[Math.floor(Math.random() * chars.length)];
-              })
-              .join('')
-          );
-
-          if (iteration >= targetText.length) {
-            clearInterval(interval);
-            setIsScrambling(false);
-          }
-          iteration += 1 / 3;
-        }, 30);
-
-        return () => clearInterval(interval);
-      }, delay);
-
-      return () => clearTimeout(timer);
-    }, [isInView, text, delay]);
-
-    return <span className={isScrambling ? 'text-gray-500' : 'text-white'}>{displayText || text.toUpperCase()}</span>;
-  };
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-[#030303] overflow-hidden py-32 lg:py-40">
@@ -146,7 +106,7 @@ const About = () => {
             className="h-px bg-gradient-to-r from-blue-500 to-purple-500"
           />
           <span className="text-gray-500 text-sm tracking-[0.3em] uppercase font-light">
-            <ScrambleText text="About" delay={800} />
+            <ScrambleText text="About" delay={800} isInView={isInView} />
           </span>
         </motion.div>
 
@@ -370,6 +330,47 @@ const About = () => {
       </div>
     </section>
   );
+};
+
+// Character scramble effect component
+const ScrambleText = ({ text, delay = 0, isInView }) => {
+  const [displayText, setDisplayText] = useState('');
+  const [isScrambling, setIsScrambling] = useState(true);
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let iteration = 0;
+    const targetText = text.toUpperCase();
+
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDisplayText(
+          targetText
+            .split('')
+            .map((char, idx) => {
+              if (char === ' ') return ' ';
+              if (idx < iteration) return targetText[idx];
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('')
+        );
+
+        if (iteration >= targetText.length) {
+          clearInterval(interval);
+          setIsScrambling(false);
+        }
+        iteration += 1 / 3;
+      }, 30);
+
+      return () => clearInterval(interval);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [isInView, text, delay]);
+
+  return <span className={isScrambling ? 'text-gray-500' : 'text-white'}>{displayText || text.toUpperCase()}</span>;
 };
 
 export default About;
