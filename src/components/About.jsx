@@ -1,6 +1,6 @@
 // components/About.jsx
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
 import { FiLinkedin, FiCpu, FiTrendingUp } from 'react-icons/fi';
 
 
@@ -9,6 +9,10 @@ const About = () => {
   const textRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
   const [hoveredMetric, setHoveredMetric] = useState(null);
+  const [activeTimeline, setActiveTimeline] = useState(null);
+  const [activeLesson, setActiveLesson] = useState(null);
+  const [clickedLegacy, setClickedLegacy] = useState(null);
+  const activeLegacyIndex = clickedLegacy;
 
   // Mouse tracking
   const mouseX = useMotionValue(0);
@@ -327,6 +331,286 @@ const About = () => {
               ))}
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* Vertical Timeline Section */}
+        <div className="mt-32 pt-20 border-t border-white/5 relative max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Milestones</span>
+            <h3 className="text-4xl md:text-5xl font-extralight text-white flex items-center justify-center flex-wrap gap-2">
+              🚀What I <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Stand For</span>
+
+            </h3>
+          </div>
+
+          {/* Timeline Grid */}
+          <div className="relative pl-8 sm:pl-12">
+
+            {/* Connecting Vertical Line */}
+            <div className="absolute left-[17px] sm:left-[21px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500/20" />
+
+            {/* Timeline Items */}
+            {[
+              { icon: "🚀", title: "Innovation First", desc: "We dare to think differently, challenge the status quo, and design forward-looking systems that shape tomorrow's technology landscape." },
+              { icon: "🤝", title: "Empower People", desc: "We believe in establishing kinder, safer societies by nurturing talent, championing diversity, and fostering inclusive, collaborative workspaces." },
+              { icon: "🎯", title: "Customer-Centric", desc: "We put our users first, engineering reliable, high-performing systems that deliver meaningful solutions and positive real-world impact." },
+              { icon: "⭐", title: "Excellence", desc: "We set high standards for ourselves. From initial blueprint to execution, we build with precision, care, and quality craftsmanship." },
+              { icon: "📚", title: "Continuous Learning", desc: "We nurture intellectual curiosity, embrace feedback, and promote lifelong development to continuously iterate, learn, and improve." }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative mb-8 last:mb-0 group cursor-pointer"
+                onMouseEnter={() => setActiveTimeline(index)}
+                onMouseLeave={() => setActiveTimeline(null)}
+              >
+                {/* Node Dot Indicator */}
+                <div className="absolute -left-[30px] sm:-left-[34px] top-7 -translate-x-1/2 flex items-center justify-center z-10">
+                  <motion.div
+                    animate={{
+                      scale: activeTimeline === index ? 1.35 : 1,
+                      backgroundColor: activeTimeline === index ? "#6366F1" : "#1E293B",
+                      boxShadow: activeTimeline === index ? "0 0 15px #6366F1" : "none",
+                      borderColor: activeTimeline === index ? "#818CF8" : "#4F46E5"
+                    }}
+                    className="w-3.5 h-3.5 rounded-full border-2 bg-[#030303] transition-colors duration-300"
+                  />
+                </div>
+
+                {/* Expanding Milestone Card */}
+                <motion.div
+                  layout
+                  className="p-6 rounded-2xl border border-white/5 bg-white/[0.01] backdrop-blur-md transition-colors duration-500 group-hover:border-indigo-500/25 group-hover:bg-white/[0.03]"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{item.icon}</span>
+                    <h4 className="text-xl font-medium text-gray-400 group-hover:text-white transition-colors duration-300">
+                      {item.title}
+                    </h4>
+                  </div>
+
+                  {/* Expansion content */}
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{
+                      height: activeTimeline === index ? "auto" : 0,
+                      opacity: activeTimeline === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-sm text-gray-400 leading-relaxed font-light mt-3 pl-9">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            ))}
+
+          </div>
+        </div>
+
+        {/* Circular Legacy Wheel Section */}
+        <div className="mt-32 pt-20 border-t border-white/5 relative flex flex-col items-center w-full overflow-hidden">
+          
+          {/* Section background fill glows */}
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/5 via-blue-950/5 to-transparent pointer-events-none z-0" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-blue-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
+
+          {/* Header */}
+          <div className="text-center mb-16 relative z-10">
+            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Purpose</span>
+            <h3 className="text-4xl md:text-5xl font-extralight text-white">
+              My Lasting <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Legacy</span>
+            </h3>
+          </div>
+
+          {/* Legacy Orbit Component Container */}
+          <div className="relative w-[560px] h-[560px] flex items-center justify-center mb-16 z-10">
+            
+            {/* Dashed Orbital Track Ring */}
+            <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-indigo-500/25 animate-[spin_100s_linear_infinite]" />
+            <div className="absolute w-[440px] h-[440px] rounded-full border border-indigo-500/15" />
+
+            {/* Glowing Center Hub (Legacy Circle) */}
+            <motion.div 
+              animate={{ 
+                boxShadow: ["0 0 20px rgba(59,130,246,0.25)", "0 0 45px rgba(99,102,241,0.5)", "0 0 20px rgba(59,130,246,0.25)"] 
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-44 h-44 rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 border border-indigo-500/40 flex items-center justify-center z-10 text-center px-2 cursor-default select-none animate-[pulse_6s_infinite] bg-cover bg-center"
+            >
+              <span className="text-sm uppercase tracking-[0.2em] font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                ⭐ Legacy ⭐
+              </span>
+            </motion.div>
+
+            {/* Orbiting Icons mapping */}
+            {[
+              { angle: 270, icon: "🌍", title: "Creating Lasting Impact", desc: "We strive to build organizations and tech solutions that leave a positive, sustainable, and permanent imprint on the world.", tooltipClass: "bottom-full left-1/2 -translate-x-1/2 mb-4 text-center", activeBg: "from-blue-600 to-indigo-600 border-blue-400 shadow-blue-500/30" },
+              { icon: "🚀", title: "Inspiring Future Entrepreneurs", desc: "Fueling startup spirit, providing advice, resources, and leadership keys to spark business innovation.", angle: 330, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-left", activeBg: "from-blue-600 via-indigo-600 to-blue-500 border-blue-400 shadow-blue-500/30" },
+              { icon: "🌱", title: "Leading with Integrity", desc: "Building relationships on trust, keeping open transparency, and always acting ethically with absolute honesty.", angle: 30, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-left", activeBg: "from-emerald-600 to-green-600 border-emerald-400 shadow-emerald-500/30" },
+              { icon: "💡", title: "Turning Ideas into Reality", desc: "Translating ambitious strategies and human-centric blueprints into functional, scaling products.", angle: 150, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-right", activeBg: "from-amber-500 to-orange-500 border-amber-400 shadow-amber-500/30" },
+              { icon: "🤝", title: "Empowering People to Grow", desc: "Supporting individual self-development, personal freedom, and mentoring the next generation of global citizens.", angle: 210, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-right", activeBg: "from-purple-600 to-pink-600 border-purple-400 shadow-purple-500/30" }
+            ].map((item, index) => {
+              // Convert angle to cartesian coordinates (radius = 220px)
+              const rad = (item.angle * Math.PI) / 180;
+              const x = Math.cos(rad) * 220;
+              const y = Math.sin(rad) * 220;
+
+              return (
+                <div 
+                  key={index} 
+                  style={{ 
+                    position: 'absolute', 
+                    left: `calc(50% + ${x}px)`, 
+                    top: `calc(50% + ${y}px)`, 
+                    transform: 'translate(-50%, -50%)' 
+                  }} 
+                  className="z-20 w-16 h-16 flex items-center justify-center"
+                >
+                  <motion.button
+                    onClick={() => setClickedLegacy(clickedLegacy === index ? null : index)}
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`relative w-full h-full rounded-full flex items-center justify-center text-3xl select-none shadow-lg transition-all duration-300
+                      ${activeLegacyIndex === index 
+                        ? `bg-gradient-to-br ${item.activeBg} border-2 text-white scale-110` 
+                        : 'bg-slate-900 border border-white/10 hover:border-indigo-500/40 text-gray-400 hover:text-white'
+                      }`}
+                  >
+                    {/* Glowing active outer pulse ring */}
+                    {activeLegacyIndex === index && (
+                      <motion.div 
+                        className="absolute inset-0 -m-2 rounded-full border border-indigo-500/40"
+                        transition={{ 
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        animate={{ scale: [1, 1.08, 1] }}
+                      />
+                    )}
+                    {item.icon}
+                  </motion.button>
+
+                  {/* Tooltip Overlay */}
+                  <AnimatePresence>
+                    {activeLegacyIndex === index && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 5 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 5 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className={`absolute p-4 rounded-xl border border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl z-30 pointer-events-none w-60 select-none ${item.tooltipClass}`}
+                      >
+                        <h4 className="text-xs font-semibold text-white mb-1 uppercase tracking-wider">{item.title}</h4>
+                        <p className="text-[11px] text-gray-400 font-light leading-relaxed">{item.desc}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
+
+        {/* Leadership Lessons Section */}
+        <div className="mt-32 pt-20 border-t border-white/5 relative max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Leadership</span>
+            <h3 className="text-4xl md:text-5xl font-extralight text-white">
+              Lessons That Shaped My <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Leadership</span>
+            </h3>
+          </div>
+
+          {/* Timeline Grid */}
+          <div className="relative pl-0 pr-0">
+
+            {/* Connecting Vertical Line */}
+            <div className="absolute left-[20px] md:left-1/2 top-6 bottom-6 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500/20 md:-translate-x-1/2" />
+
+            {/* Timeline Items */}
+            {[
+              { icon: "💡", title: "Listen Before You Lead", desc: "The best decisions begin by understanding people and their perspectives." },
+              { icon: "💡", title: "Simplicity Creates Impact", desc: "The most effective solutions are often the simplest." },
+              { icon: "🤝", title: "People Always Come First", desc: "Technology evolves, but strong relationships remain the foundation of success." },
+              { icon: "🚀", title: "Stay Adaptable", desc: "Every challenge brings an opportunity to learn and improve." },
+              { icon: "⭐", title: "Lead with Purpose", desc: "Leadership is about inspiring others to achieve a shared vision." }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative flex flex-col md:flex-row items-start md:items-center justify-between mb-16 last:mb-0 group cursor-pointer ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
+                onMouseEnter={() => setActiveLesson(index)}
+                onMouseLeave={() => setActiveLesson(null)}
+              >
+                {/* Desktop Spacer taking up half space */}
+                <div className="hidden md:block w-[calc(50%-40px)]" />
+
+                {/* Stepping Stone Node (Centered exactly on the path line) */}
+                <div className="absolute left-[20px] md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+                  <motion.div 
+                    animate={{
+                      scale: activeLesson === index ? 1.25 : 1,
+                      boxShadow: activeLesson === index ? "0 0 20px #6366F1" : "none",
+                      borderColor: activeLesson === index ? "#818CF8" : "#4F46E5",
+                      backgroundColor: activeLesson === index ? "#6366F1" : "#1E293B"
+                    }}
+                    className="w-12 h-12 rounded-full border-2 flex items-center justify-center text-xl bg-[#030303] transition-colors duration-300 shadow-xl text-white"
+                  >
+                    {item.icon}
+                  </motion.div>
+                </div>
+
+                {/* Expanding Lesson Card */}
+                <motion.div
+                  layout
+                  className="pl-14 md:pl-0 w-full md:w-[calc(50%-40px)] relative z-10"
+                >
+                  <motion.div
+                    layout
+                    className={`p-6 rounded-2xl border border-white/5 bg-white/[0.01] backdrop-blur-md transition-colors duration-500 group-hover:border-indigo-500/25 group-hover:bg-white/[0.03] text-left ${
+                      index % 2 === 0 ? 'md:text-right' : 'md:text-left'
+                    }`}
+                  >
+                    <h4 className="text-xl font-medium text-gray-400 group-hover:text-white transition-colors duration-300">
+                      {item.title}
+                    </h4>
+
+                    {/* Expansion content */}
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ 
+                        height: activeLesson === index ? "auto" : 0,
+                        opacity: activeLesson === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-sm text-gray-400 leading-relaxed font-light mt-3 pl-0">
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            ))}
+
+          </div>
         </div>
 
         {/* LinkedIn Insights Section */}
