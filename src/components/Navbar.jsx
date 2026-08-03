@@ -6,6 +6,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
+    { id: 'feedback', label: "🤝 Let's Talk" },
     { id: 'contact', label: 'Contact' }
   ];
 

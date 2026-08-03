@@ -8,9 +8,15 @@ import SocialContact from './components/SocialContact';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
-import Timeline from './components/Timeline';
 import MissionVision from './components/MissionVision';
+import CoreValues from './components/CoreValues';
+import Milestones from './components/Milestones';
+import Legacy from './components/Legacy';
+import Feedback from './components/Feedback';
+
+
 import { AnimatePresence, motion } from 'framer-motion';
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +49,9 @@ function App() {
                 >
                   <Hero setCurrentPage={setCurrentPage} />
                   <MissionVision />
-                  <Timeline />
+                  <CoreValues />
+                  <Milestones />
+                  <Legacy />
                   <Footer setCurrentPage={setCurrentPage} />
                 </motion.div>
               )}
@@ -73,6 +81,20 @@ function App() {
                   className="pt-20"
                 >
                   <Companies />
+                  <Footer setCurrentPage={setCurrentPage} />
+                </motion.div>
+              )}
+
+              {currentPage === 'feedback' && (
+                <motion.div
+                  key="feedback"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="pt-20"
+                >
+                  <Feedback />
                   <Footer setCurrentPage={setCurrentPage} />
                 </motion.div>
               )}
