@@ -73,9 +73,9 @@ function App() {
                 </motion.div>
               )}
 
-              {currentPage === 'services' && (
+              {currentPage === 'What I Build' && (
                 <motion.div
-                  key="services"
+                  key="What I Build"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

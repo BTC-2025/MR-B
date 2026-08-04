@@ -1,7 +1,8 @@
 // components/About.jsx
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
-import { FiLinkedin, FiCpu, FiTrendingUp } from 'react-icons/fi';
+import { FiCode, FiShield, FiSend, FiRefreshCw, FiSearch } from 'react-icons/fi';
+import { FaLightbulb } from 'react-icons/fa';
 
 
 const About = () => {
@@ -11,6 +12,7 @@ const About = () => {
   const [hoveredMetric, setHoveredMetric] = useState(null);
   const [activeTimeline, setActiveTimeline] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
+  const [activeProcess, setActiveProcess] = useState(null);
   const [clickedLegacy, setClickedLegacy] = useState(null);
   const activeLegacyIndex = clickedLegacy;
 
@@ -452,11 +454,12 @@ const About = () => {
 
             {/* Orbiting Icons mapping */}
             {[
-              { angle: 270, icon: "🌍", title: "Creating Lasting Impact", desc: "We strive to build organizations and tech solutions that leave a positive, sustainable, and permanent imprint on the world.", tooltipClass: "bottom-full left-1/2 -translate-x-1/2 mb-4 text-center", activeBg: "from-blue-600 to-indigo-600 border-blue-400 shadow-blue-500/30" },
-              { icon: "🚀", title: "Inspiring Future Entrepreneurs", desc: "Fueling startup spirit, providing advice, resources, and leadership keys to spark business innovation.", angle: 330, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-left", activeBg: "from-blue-600 via-indigo-600 to-blue-500 border-blue-400 shadow-blue-500/30" },
-              { icon: "🌱", title: "Leading with Integrity", desc: "Building relationships on trust, keeping open transparency, and always acting ethically with absolute honesty.", angle: 30, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-left", activeBg: "from-emerald-600 to-green-600 border-emerald-400 shadow-emerald-500/30" },
-              { icon: "💡", title: "Turning Ideas into Reality", desc: "Translating ambitious strategies and human-centric blueprints into functional, scaling products.", angle: 150, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-right", activeBg: "from-amber-500 to-orange-500 border-amber-400 shadow-amber-500/30" },
-              { icon: "🤝", title: "Empowering People to Grow", desc: "Supporting individual self-development, personal freedom, and mentoring the next generation of global citizens.", angle: 210, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-right", activeBg: "from-purple-600 to-pink-600 border-purple-400 shadow-purple-500/30" }
+              { angle: 270, icon: "🌍", title: "Creating Lasting Impact", desc: "We strive to build organizations and tech solutions that leave a positive, sustainable, and permanent imprint on the world.", tooltipClass: "bottom-full left-1/2 -translate-x-1/2 mb-4 text-center", activeBg: "from-blue-600 to-indigo-600 border-blue-400 shadow-blue-500/30", gradientStyle: "linear-gradient(135deg, #2563EB, #4F46E5)" },
+              { icon: "🚀", title: "Inspiring Future Entrepreneurs", desc: "Fueling startup spirit, providing advice, resources, and leadership keys to spark business innovation.", angle: 330, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-left", activeBg: "from-blue-600 via-indigo-600 to-blue-500 border-blue-400 shadow-blue-500/30", gradientStyle: "linear-gradient(135deg, #2563EB, #4338CA)" },
+              { icon: "🌱", title: "Leading with Integrity", desc: "Building relationships on trust, keeping open transparency, and always acting ethically with absolute honesty.", angle: 30, tooltipClass: "md:left-full md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:ml-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-left", activeBg: "from-emerald-600 to-green-600 border-emerald-400 shadow-emerald-500/30", gradientStyle: "linear-gradient(135deg, #059669, #16A34A)" },
+              { icon: "👑", title: "Leadership", desc: "Inspiring teams and driving change — fostering a culture of ownership, courage, and collective excellence.", angle: 90, tooltipClass: "bottom-full left-1/2 -translate-x-1/2 mb-4 text-center", activeBg: "from-yellow-500 to-amber-600 border-yellow-400 shadow-yellow-500/30", gradientStyle: "linear-gradient(135deg, #EAB308, #D97706)" },
+              { icon: "💡", title: "Turning Ideas into Reality", desc: "Translating ambitious strategies and human-centric blueprints into functional, scaling products.", angle: 150, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 top-full md:bottom-auto left-1/2 -translate-x-1/2 mt-4 text-center md:text-right", activeBg: "from-amber-500 to-orange-500 border-amber-400 shadow-amber-500/30", gradientStyle: "linear-gradient(135deg, #F59E0B, #F97316)" },
+              { icon: "🤝", title: "Empowering People to Grow", desc: "Supporting individual self-development, personal freedom, and mentoring the next generation of global citizens.", angle: 210, tooltipClass: "md:right-full md:left-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:translate-x-0 md:mr-4 bottom-full left-1/2 -translate-x-1/2 mb-4 text-center md:text-right", activeBg: "from-purple-600 to-pink-600 border-purple-400 shadow-purple-500/30", gradientStyle: "linear-gradient(135deg, #9333EA, #DB2777)" }
             ].map((item, index) => {
               // Convert angle to cartesian coordinates (radius = 220px)
               const rad = (item.angle * Math.PI) / 180;
@@ -480,9 +483,12 @@ const About = () => {
                     whileTap={{ scale: 0.9 }}
                     className={`relative w-full h-full rounded-full flex items-center justify-center text-3xl select-none shadow-lg transition-all duration-300
                       ${activeLegacyIndex === index 
-                        ? `bg-gradient-to-br ${item.activeBg} border-2 text-white scale-110` 
+                        ? `border-2 text-white scale-110` 
                         : 'bg-slate-900 border border-white/10 hover:border-indigo-500/40 text-gray-400 hover:text-white'
                       }`}
+                    style={activeLegacyIndex === index ? {
+                      background: item.gradientStyle,
+                    } : {}}
                   >
                     {/* Glowing active outer pulse ring */}
                     {activeLegacyIndex === index && (
@@ -613,191 +619,337 @@ const About = () => {
           </div>
         </div>
 
-        {/* LinkedIn Insights Section */}
-        <div className="mt-32 pt-20 border-t border-white/5 relative overflow-hidden flex flex-col items-center w-full">
-
-          {/* Ambient background glows */}
-          <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none z-0" />
-          <div className="absolute bottom-1/3 right-1/4 translate-y-1/2 w-[350px] h-[350px] rounded-full bg-purple-500/5 blur-[120px] pointer-events-none z-0" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0 opacity-40" />
-
-          {/* SVG Constellation background */}
-          <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12%" cy="45%" r="2" fill="#818CF8" />
-            <circle cx="22%" cy="75%" r="3" fill="#6366F1" />
-            <circle cx="82%" cy="35%" r="3" fill="#6366F1" />
-            <circle cx="92%" cy="65%" r="2" fill="#818CF8" />
-            <line x1="12%" y1="45%" x2="22%" y2="75%" stroke="#4F46E5" strokeWidth="0.5" strokeDasharray="4 4" />
-            <line x1="82%" y1="35%" x2="92%" y2="65%" stroke="#4F46E5" strokeWidth="0.5" strokeDasharray="4 4" />
-          </svg>
-
+        {/* Work Process Section - Infinity Workflow */}
+        <div className="mt-32 pt-20 border-t border-white/5 relative">
           {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-8 relative z-10"
-          >
-            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Updates</span>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white">
-              LinkedIn <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Insights</span>
+          <div className="text-center mb-16">
+            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Workflow</span>
+            <h3 className="text-4xl md:text-5xl font-extralight text-white">
+              Work <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Process</span>
             </h3>
-
-            {/* Tagline Subtitle */}
-            <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mt-4 text-gray-400 text-sm md:text-base font-light tracking-wide">
-              <span>Ideas</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500/60" />
-              <span>Entrepreneurship</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/60" />
-              <span>Technology</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-500/60" />
-              <span>Leadership</span>
-            </div>
-
-            {/* Descriptive Text */}
-            <p className="text-gray-400 text-sm md:text-base font-light max-w-2xl mx-auto mt-6 px-4 leading-relaxed">
-              Discover recent takeaways and reflections on startup growth, system architecture, tech trends, and leadership practices shared directly on my feed.
-            </p>
-          </motion.div>
-
-          {/* Glassmorphic Stats Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="relative z-10 flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-10 my-12 max-w-2xl mx-auto py-6 px-8 rounded-3xl bg-gradient-to-br from-indigo-950/10 via-slate-950/30 to-purple-950/10 border border-white/10 backdrop-blur-xl shadow-[0_0_50px_-12px_rgba(99,102,241,0.15)] hover:border-indigo-500/25 transition-colors duration-500"
-          >
-            <div className="text-center sm:flex-1 sm:border-r sm:border-white/5">
-              <span className="block text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">25+</span>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500 mt-2 block">Posts</span>
-            </div>
-            <div className="text-center sm:flex-1 sm:border-r sm:border-white/5">
-              <span className="block text-4xl md:text-5xl font-black bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">15K+</span>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500 mt-2 block">Views</span>
-            </div>
-            <div className="text-center sm:flex-1">
-              <span className="block text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">500+</span>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500 mt-2 block">Reactions</span>
-            </div>
-          </motion.div>
-
-          {/* Centered Posts Container with Category Badges */}
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 relative z-10 w-full">
-
-            {/* Technology Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="flex flex-col gap-6 items-center"
-            >
-              {/* Modern Category Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider shadow-[0_2px_10px_rgba(59,130,246,0.05)]">
-                <FiCpu className="w-4 h-4 text-blue-400" />
-                Technology
-              </div>
-
-              {/* Post 1 (Edge-to-Edge with Hover Glow Effects) */}
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: "0 30px 60px -15px rgba(99, 102, 241, 0.35)",
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-[420px] h-[500px] overflow-hidden rounded-[2rem] shadow-2xl relative flex items-center justify-center flex-shrink-0 bg-white z-10"
-              >
-                {/* Scaled iframe */}
-                <div
-                  className="w-[504px] h-[600px] origin-center flex-shrink-0 flex items-center justify-center relative z-10"
-                  style={{ transform: 'scale(0.8333)' }}
-                >
-                  <iframe
-                    src="https://www.linkedin.com/embed/feed/update/urn:li:share:7455127471827496960?collapsed=1"
-                    height="600"
-                    width="504"
-                    className="border-0 rounded-[2rem] shadow-2xl"
-                    allowFullScreen=""
-                    title="Embedded post"
-                    scrolling="no"
-                  ></iframe>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Entrepreneurship Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="flex flex-col gap-6 items-center"
-            >
-              {/* Modern Category Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold uppercase tracking-wider shadow-[0_2px_10px_rgba(168,85,247,0.05)]">
-                <FiTrendingUp className="w-4 h-4 text-purple-400" />
-                Entrepreneurship
-              </div>
-
-              {/* Post 2 (Collapsed with Glassmorphic Wrapper & Hover Effects) */}
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: "0 30px 60px -15px rgba(99, 102, 241, 0.35)",
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-[420px] h-[500px] overflow-hidden rounded-[2rem] shadow-2xl relative flex items-center justify-center flex-shrink-0 bg-white z-10"
-              >
-                {/* Scaled iframe */}
-                <div
-                  className="w-[504px] h-[600px] origin-center flex-shrink-0 flex items-center justify-center relative z-10"
-                  style={{ transform: 'scale(0.8333)' }}
-                >
-                  <iframe
-                    src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454859571640094720?collapsed=1"
-                    height="600"
-                    width="504"
-                    className="border-0 rounded-[2rem] shadow-2xl"
-                    allowFullScreen=""
-                    title="Embedded post"
-                    scrolling="no"
-                  ></iframe>
-                </div>
-              </motion.div>
-            </motion.div>
-
+            <p className="text-gray-500 text-sm mt-4 font-light tracking-wide">Development never ends — it evolves.</p>
           </div>
 
-          {/* Connect CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="mt-16 flex justify-center relative z-10"
-          >
-            <motion.a
-              href="https://www.linkedin.com/feed/update/urn:li:share:7455127471827496960"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 0 35px rgba(219, 39, 119, 0.45)"
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600 text-white font-medium hover:shadow-lg transition-all duration-300 shadow-[0_0_30px_-5px_rgba(99,102,241,0.3)]"
-            >
-              <FiLinkedin className="w-5 h-5" />
-              Connect with me on LinkedIn
-            </motion.a>
-          </motion.div>
+          {/* Desktop: Infinity Loop */}
+          <div className="hidden md:block relative max-w-5xl mx-auto">
+            <div className="relative w-full" style={{ paddingBottom: '44.4%' }}>
+
+              {/* SVG Infinity Path */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 900 400"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ overflow: 'visible' }}
+              >
+                <defs>
+                  <filter id="wfNodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="wfDotGlow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <linearGradient id="wfGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3B82F6" />
+                    <stop offset="40%" stopColor="#8B5CF6" />
+                    <stop offset="70%" stopColor="#EC4899" />
+                    <stop offset="100%" stopColor="#10B981" />
+                  </linearGradient>
+                </defs>
+
+                {/* ∞ soft glow halo */}
+                <path
+                  d="M 450,200 C 460,100 590,50 680,200 C 770,350 900,350 900,200 C 900,50 770,50 680,200 C 590,350 460,300 450,200 C 440,100 310,50 220,200 C 130,350 0,350 0,200 C 0,50 130,50 220,200 C 310,350 440,300 450,200"
+                  fill="none"
+                  stroke="rgba(99,102,241,0.07)"
+                  strokeWidth="50"
+                />
+
+                {/* ∞ base track */}
+                <path
+                  d="M 450,200 C 460,100 590,50 680,200 C 770,350 900,350 900,200 C 900,50 770,50 680,200 C 590,350 460,300 450,200 C 440,100 310,50 220,200 C 130,350 0,350 0,200 C 0,50 130,50 220,200 C 310,350 440,300 450,200"
+                  fill="none"
+                  stroke="rgba(99,102,241,0.18)"
+                  strokeWidth="1.5"
+                />
+
+                {/* ∞ animated dashed gradient overlay */}
+                <path
+                  id="wfInfPath"
+                  d="M 450,200 C 460,100 590,50 680,200 C 770,350 900,350 900,200 C 900,50 770,50 680,200 C 590,350 460,300 450,200 C 440,100 310,50 220,200 C 130,350 0,350 0,200 C 0,50 130,50 220,200 C 310,350 440,300 450,200"
+                  fill="none"
+                  stroke="url(#wfGrad)"
+                  strokeWidth="1.5"
+                  strokeDasharray="10 18"
+                  opacity="0.55"
+                >
+                  <animate attributeName="stroke-dashoffset" from="0" to="-2800" dur="18s" repeatCount="indefinite" />
+                </path>
+
+                {/* Flowing dots along the ∞ path */}
+                {[0, 6, 12].map((delay, i) => (
+                  <circle key={i} r={i === 0 ? 5 : 3.5} fill="white" opacity={i === 0 ? 0.9 : 0.45} filter="url(#wfDotGlow)">
+                    <animateMotion dur="18s" begin={`${-delay}s`} repeatCount="indefinite" rotate="0">
+                      <mpath href="#wfInfPath" />
+                    </animateMotion>
+                  </circle>
+                ))}
+              </svg>
+
+              {/* Nodes positioned at key points on the ∞ */}
+              {[
+                { title: "Idea",        icon: FaLightbulb, x: 22,  y: 12,  color: "from-blue-500 to-cyan-500",     glow: "#3B82F6", textColor: "text-blue-400",    desc: "Conceptualizing creative strategies, identifying market gaps, and defining product requirements." },
+                { title: "Research",    icon: FiSearch,    x: 76,  y: 12,  color: "from-indigo-500 to-blue-500",   glow: "#6366F1", textColor: "text-indigo-400",  desc: "Validating feasibility, analyzing competitors, and conducting targeted user surveys." },
+                { title: "Development", icon: FiCode,      x: 97,  y: 50,  color: "from-purple-500 to-indigo-500", glow: "#8B5CF6", textColor: "text-purple-400",  desc: "Writing clean, modular, and optimized code backed by security and state synchronization." },
+                { title: "Deploy",      icon: FiSend,      x: 76,  y: 88,  color: "from-pink-500 to-purple-500",   glow: "#EC4899", textColor: "text-pink-400",    desc: "Launching to reliable server infrastructure using automated, zero-downtime workflows." },
+                { title: "Testing",     icon: FiShield,    x: 22,  y: 88,  color: "from-rose-500 to-orange-500",   glow: "#F43F5E", textColor: "text-rose-400",    desc: "Running unit, integration, and security checks to ensure robustness and code integrity." },
+                { title: "Improve",     icon: FiRefreshCw, x: 2,   y: 50,  color: "from-emerald-500 to-teal-500",  glow: "#10B981", textColor: "text-emerald-400", desc: "Monitoring systems, processing user feedback, and continuously releasing improvements." },
+              ].map((step, index) => {
+                const Icon = step.icon;
+                const isHovered = activeProcess === index;
+                const tooltipOnTop = step.y < 50;
+                return (
+                  <div
+                    key={index}
+                    style={{ position: 'absolute', left: `${step.x}%`, top: `${step.y}%`, transform: 'translate(-50%, -50%)' }}
+                    className="z-10"
+                    onMouseEnter={() => setActiveProcess(index)}
+                    onMouseLeave={() => setActiveProcess(null)}
+                  >
+                    {/* Outer glow pulse ring */}
+                    {isHovered && (
+                      <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1.6, opacity: 0 }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                        className="absolute inset-0 rounded-full"
+                        style={{ background: `radial-gradient(circle, ${step.glow} 0%, transparent 70%)` }}
+                      />
+                    )}
+
+                    {/* Icon button */}
+                    <motion.div
+                      animate={{
+                        scale: isHovered ? 1.2 : 1,
+                        boxShadow: isHovered ? `0 0 28px ${step.glow}` : '0 0 0 transparent',
+                      }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      className={`w-14 h-14 rounded-full bg-gradient-to-br ${step.color} p-[1.5px] cursor-pointer`}
+                    >
+                      <div className="w-full h-full rounded-full bg-[#0a0a0a] flex items-center justify-center">
+                        <motion.div
+                          animate={{ rotate: isHovered ? 15 : 0, scale: isHovered ? 1.25 : 1 }}
+                          transition={{ type: 'spring', stiffness: 280, damping: 14 }}
+                        >
+                          <Icon className={`w-5 h-5 ${step.textColor}`} />
+                        </motion.div>
+                      </div>
+                    </motion.div>
+
+                    {/* Step number badge */}
+                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gray-900 border border-white/10 flex items-center justify-center pointer-events-none">
+                      <span className="text-[9px] text-gray-500 font-medium">{index + 1}</span>
+                    </div>
+
+                    {/* Label */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 pointer-events-none">
+                      <span className={`block text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors duration-200 ${isHovered ? 'text-white' : 'text-gray-500'}`}>
+                        {step.title}
+                      </span>
+                    </div>
+
+                    {/* Tooltip */}
+                    <AnimatePresence>
+                      {isHovered && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.9, y: tooltipOnTop ? 6 : -6 }}
+                          animate={{ opacity: 1, scale: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ duration: 0.18, ease: 'easeOut' }}
+                          className={`absolute ${tooltipOnTop ? 'bottom-full mb-16' : 'top-full mt-16'} left-1/2 -translate-x-1/2 px-4 py-3 rounded-xl border border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl z-40 pointer-events-none w-52 text-center`}
+                        >
+                          <p className="text-xs font-semibold text-white mb-1">{step.title}</p>
+                          <p className="text-xs text-gray-400 font-light leading-relaxed">{step.desc}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+
+              {/* Center ∞ symbol */}
+              <div className="absolute pointer-events-none" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
+                <motion.span
+                  animate={{ opacity: [0.04, 0.12, 0.04] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="text-9xl text-white select-none font-thin leading-none"
+                >
+                  ∞
+                </motion.span>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: Vertical flow list */}
+          <div className="md:hidden max-w-xs mx-auto mt-8 px-4">
+            <div className="relative">
+              <div className="absolute left-7 top-7 bottom-7 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500 via-purple-500 via-pink-500 via-rose-500 to-emerald-500 opacity-40" />
+              {[
+                { title: "Idea",        icon: FaLightbulb, color: "from-blue-500 to-cyan-500",     textColor: "text-blue-400"    },
+                { title: "Research",    icon: FiSearch,    color: "from-indigo-500 to-blue-500",   textColor: "text-indigo-400"  },
+                { title: "Development", icon: FiCode,      color: "from-purple-500 to-indigo-500", textColor: "text-purple-400"  },
+                { title: "Deploy",      icon: FiSend,      color: "from-pink-500 to-purple-500",   textColor: "text-pink-400"    },
+                { title: "Testing",     icon: FiShield,    color: "from-rose-500 to-orange-500",   textColor: "text-rose-400"    },
+                { title: "Improve",     icon: FiRefreshCw, color: "from-emerald-500 to-teal-500",  textColor: "text-emerald-400" },
+              ].map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <div key={i} className="flex items-center gap-4 mb-8 last:mb-0">
+                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${step.color} p-[1.5px] shrink-0 z-10`}>
+                      <div className="w-full h-full rounded-full bg-[#0a0a0a] flex items-center justify-center">
+                        <Icon className={`w-5 h-5 ${step.textColor}`} />
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-white font-medium block">{step.title}</span>
+                      {i < 5 && <span className="text-gray-600 text-xs">↓ continues</span>}
+                      {i === 5 && <span className="text-emerald-500 text-xs">↑ loops back</span>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
+
+
+        {/* What I'm Working On Section */}
+        <div className="mt-32 pt-20 border-t border-white/5 relative max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Currently</span>
+            <h3 className="text-4xl md:text-5xl font-extralight text-white">
+              What I'm <span className="font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Working On</span>
+            </h3>
+          </div>
+
+          {/* Items */}
+          <div className="flex flex-col gap-4">
+            {[
+              {
+                title: "Enterprise Software",
+                status: "ACTIVE",
+                statusColor: "text-emerald-400",
+                statusBg: "bg-emerald-500/10 border-emerald-500/20",
+                dotColor: "bg-emerald-400",
+                pulse: true,
+                borderHover: "hover:border-emerald-500/25",
+                glowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(52,211,153,0.2)]",
+                desc: "Designing scalable enterprise platforms that streamline operations and drive business value.",
+              },
+              {
+                title: "AI & Automation",
+                status: "RESEARCH",
+                statusColor: "text-blue-400",
+                statusBg: "bg-blue-500/10 border-blue-500/20",
+                dotColor: "bg-blue-400",
+                pulse: false,
+                borderHover: "hover:border-blue-500/25",
+                glowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(96,165,250,0.2)]",
+                desc: "Exploring intelligent automation and machine learning pipelines to accelerate product capabilities.",
+              },
+              {
+                title: "Product Innovation",
+                status: "BUILDING",
+                statusColor: "text-violet-400",
+                statusBg: "bg-violet-500/10 border-violet-500/20",
+                dotColor: "bg-violet-400",
+                pulse: false,
+                borderHover: "hover:border-violet-500/25",
+                glowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(167,139,250,0.2)]",
+                desc: "Transforming ideas into market-ready products with a focus on user experience and scalability.",
+              },
+              {
+                title: "System Architecture",
+                status: "DESIGNING",
+                statusColor: "text-amber-400",
+                statusBg: "bg-amber-500/10 border-amber-500/20",
+                dotColor: "bg-amber-400",
+                pulse: false,
+                borderHover: "hover:border-amber-500/25",
+                glowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(251,191,36,0.2)]",
+                desc: "Architecting robust, cloud-native systems built for performance, reliability, and long-term growth.",
+              },
+              {
+                title: "Digital Transformation",
+                status: "STRATEGY",
+                statusColor: "text-pink-400",
+                statusBg: "bg-pink-500/10 border-pink-500/20",
+                dotColor: "bg-pink-400",
+                pulse: false,
+                borderHover: "hover:border-pink-500/25",
+                glowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(244,114,182,0.2)]",
+                desc: "Driving digital-first strategies that reshape how organizations operate and compete.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className={`group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl border border-white/5 bg-white/[0.01] backdrop-blur-md transition-all duration-500 ${item.borderHover} ${item.glowHover} cursor-default`}
+              >
+                {/* Left: index + title + desc */}
+                <div className="flex items-start gap-5">
+                  <span className="text-[11px] font-mono text-gray-600 pt-1 w-5 shrink-0 select-none">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h4 className="text-lg font-medium text-gray-300 group-hover:text-white transition-colors duration-300 tracking-wide">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-gray-500 font-light mt-1 leading-relaxed max-w-lg">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Status badge */}
+                <div className="shrink-0 sm:ml-auto pl-10 sm:pl-0">
+                  <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-[10px] font-semibold tracking-widest uppercase ${item.statusBg} ${item.statusColor}`}>
+                    <span className="relative flex h-1.5 w-1.5">
+                      {item.pulse && (
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${item.dotColor}`} />
+                      )}
+                      <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${item.dotColor}`} />
+                    </span>
+                    {item.status}
+                  </div>
+                </div>
+
+                {/* Subtle right arrow */}
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none">
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+
       </div>
+
     </section>
   );
 };

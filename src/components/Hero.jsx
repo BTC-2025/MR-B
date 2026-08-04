@@ -160,7 +160,7 @@ const Hero = ({ setCurrentPage }) => {
                         transition={{ delay: 1.6, duration: 0.6 }}
                         className="flex gap-12"
                     >
-                        <button onClick={() => setCurrentPage('services')} className="group text-left">
+                        <button onClick={() => setCurrentPage('What I Build')} className="group text-left">
                             <span className="text-sm text-gray-500 block mb-1 text-left">01</span>
                             <span className="text-white font-medium group-hover:text-indigo-400 transition-colors block">
                                 View Work

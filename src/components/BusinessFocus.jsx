@@ -14,7 +14,7 @@ const BusinessFocus = ({ setCurrentPage }) => {
       desc: 'Designing scalable software solutions that streamline operations and maximize efficiency for large organizations.',
       color: 'from-blue-500 to-indigo-500',
       hasLink: true,
-      linkTarget: 'services'
+      linkTarget: 'What I Build'
     },
     {
       title: 'Product Innovation',
@@ -22,7 +22,7 @@ const BusinessFocus = ({ setCurrentPage }) => {
       desc: 'Transforming complex ideas into polished, user-centric digital products that stand out in the market.',
       color: 'from-amber-500 to-orange-500',
       hasLink: true,
-      linkTarget: 'services'
+      linkTarget: 'What I Build'
     },
     {
       title: 'Digital Transformation',
