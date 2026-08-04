@@ -13,6 +13,7 @@ import CoreValues from './components/CoreValues';
 import Milestones from './components/Milestones';
 import Legacy from './components/Legacy';
 import Feedback from './components/Feedback';
+import BusinessFocus from './components/BusinessFocus';
 
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -49,6 +50,7 @@ function App() {
                 >
                   <Hero setCurrentPage={setCurrentPage} />
                   <MissionVision />
+                  <BusinessFocus setCurrentPage={setCurrentPage} />
                   <CoreValues />
                   <Milestones />
                   <Legacy />
