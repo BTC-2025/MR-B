@@ -119,6 +119,84 @@ const Companies = () => {
         </motion.div>
       </motion.div>
 
+      {/* Storytelling UI */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16 mb-28">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-gray-500 text-xs tracking-[0.25em] uppercase mb-3 block">The Process</span>
+          <h4 className="text-2xl md:text-3xl font-extralight text-white/95">
+            Every great product begins with...
+          </h4>
+        </motion.div>
+
+        {/* Steps Container */}
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-6 relative">
+          
+          {/* Connecting Line Backdrop for Desktop */}
+          <div className="hidden lg:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-amber-500/20 via-indigo-500/20 via-purple-500/20 via-rose-500/20 to-emerald-500/20 z-0 pointer-events-none" />
+
+          {[
+            { step: "01", label: "An Idea", emoji: "💡", color: "from-amber-400 to-yellow-500", glow: "rgba(245,158,11,0.25)", border: "border-amber-500/20 shadow-[0_0_20px_-5px_rgba(245,158,11,0.1)]", hoverBorder: "hover:border-amber-400/40" },
+            { step: "02", label: "A Problem", emoji: "🧩", color: "from-purple-400 to-indigo-500", glow: "rgba(139,92,246,0.25)", border: "border-purple-500/20 shadow-[0_0_20px_-5px_rgba(139,92,246,0.1)]", hoverBorder: "hover:border-purple-400/40" },
+            { step: "03", label: "A Solution", emoji: "⚙", color: "from-blue-400 to-cyan-500", glow: "rgba(59,130,246,0.25)", border: "border-blue-500/20 shadow-[0_0_20px_-5px_rgba(59,130,246,0.1)]", hoverBorder: "hover:border-blue-400/40" },
+            { step: "04", label: "Execution", emoji: "🚀", color: "from-rose-400 to-red-500", glow: "rgba(244,63,94,0.25)", border: "border-rose-500/20 shadow-[0_0_20px_-5px_rgba(244,63,94,0.1)]", hoverBorder: "hover:border-rose-400/40" },
+            { step: "05", label: "Impact", emoji: "🌍", color: "from-emerald-400 to-teal-500", glow: "rgba(16,185,129,0.25)", border: "border-emerald-500/20 shadow-[0_0_20px_-5px_rgba(16,185,129,0.1)]", hoverBorder: "hover:border-emerald-400/40" }
+          ].map((item, index) => (
+            <React.Fragment key={index}>
+              {/* Card item */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className={`flex-1 w-full max-w-[240px] relative z-10 flex flex-col items-center p-6 rounded-2xl bg-white/[0.01] border backdrop-blur-md transition-all duration-300 ${item.border} ${item.hoverBorder}`}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = `0 0 35px -5px ${item.glow}`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '';
+                }}
+              >
+                {/* Accent Top Gradient bar */}
+                <div className={`absolute top-0 left-0 w-full h-[3px] rounded-t-2xl bg-gradient-to-r ${item.color}`} />
+
+                {/* Step number */}
+                <span className="text-[10px] font-mono text-gray-500 tracking-wider mb-4 uppercase">STEP {item.step}</span>
+
+                {/* Emoji Circle Container */}
+                <motion.div 
+                  className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} p-[1.5px] mb-4 shadow-lg`}
+                  whileHover={{ rotate: 12, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  <div className="w-full h-full rounded-full bg-[#0a0a0a] flex items-center justify-center text-3xl select-none">
+                    {item.emoji}
+                  </div>
+                </motion.div>
+
+                {/* Title */}
+                <h5 className="text-lg font-medium text-gray-200 text-center">
+                  {item.label}
+                </h5>
+              </motion.div>
+
+              {/* Vertical arrow / indicator for mobile; hidden on desktop */}
+              {index < 4 && (
+                <div className="lg:hidden flex items-center justify-center my-2 text-gray-600 text-lg">
+                  ↓
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
       {/* Beta Softnet Logo */}
 
       <motion.div
