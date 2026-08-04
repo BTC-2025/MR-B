@@ -67,7 +67,61 @@ const Contact = () => {
 
             <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
 
+                {/* The Spark — Intro block */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.9, ease: 'easeOut' }}
+                    className="text-center mb-20"
+                >
+                    {/* Eyebrow label */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-6"
+                    >
+                        <span className="text-sm">⚡</span>
+                        <span className="text-xs font-medium tracking-widest uppercase text-gray-400">The Spark</span>
+                    </motion.div>
+
+                    {/* Main heading */}
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 leading-tight"
+                    >
+                        Every Click Begins{' '}
+                        <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            with an Idea
+                        </span>
+                    </motion.h2>
+
+                    {/* Body paragraph */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, delay: 0.35 }}
+                        className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed font-light"
+                    >
+                        Behind every website is a story waiting to be told. Whether you're starting from a blank page or refining an existing vision, I'm here to transform ideas into experiences that are{' '}
+                        <span className="text-gray-300 font-normal">intuitive</span>,{' '}
+                        <span className="text-gray-300 font-normal">reliable</span>, and built with{' '}
+                        <span className="font-medium bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">purpose</span>.
+                    </motion.p>
+
+                    {/* Decorative gradient separator */}
+                    <motion.div
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="mx-auto mt-10 w-24 h-px bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-center"
+                    />
+                </motion.div>
+
                 {/* Header */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -100,6 +154,66 @@ const Contact = () => {
                     </motion.p>
                 </motion.div>
 
+                {/* Glassmorphism Intro Card — full width */}
+                <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative rounded-3xl overflow-hidden mb-16 max-w-2xl mx-auto"
+                >
+                    {/* Gradient border shimmer layer */}
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/25 via-purple-500/15 to-pink-500/25 pointer-events-none" />
+                    <div className="absolute inset-[1px] rounded-[22px] bg-[#07080a]/85 backdrop-blur-xl pointer-events-none" />
+
+                    {/* Decorative inner glow */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-20 bg-purple-500/10 blur-2xl pointer-events-none rounded-full" />
+
+                    {/* Card content */}
+                    <div className="relative z-10 p-8 space-y-5 text-center">
+                        {/* Heading */}
+                        <div className="flex items-center justify-center gap-2.5">
+                            <span className="text-2xl">✨</span>
+                            <h3 className="text-xl font-bold text-white tracking-wide leading-snug">
+                                Let's Build Something Meaningful
+                            </h3>
+                        </div>
+
+                        {/* Body paragraph */}
+                        <p className="text-sm text-gray-400 font-light leading-relaxed max-w-lg mx-auto">
+                            Every great project starts with a conversation. Whether you're shaping a new idea, improving an existing product, or looking for a developer...
+                        </p>
+
+                        {/* Divider */}
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+                        {/* Status badges — inline centered */}
+                        <div className="flex items-center justify-center gap-8 flex-wrap">
+                            <motion.div
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ delay: 0.45 }}
+                                className="flex items-center gap-2"
+                            >
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                                </span>
+                                <span className="text-xs font-mono text-gray-300">Open to Collaborations</span>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ delay: 0.55 }}
+                                className="flex items-center gap-2"
+                            >
+                                <span className="text-sm leading-none">⚡</span>
+                                <span className="text-xs font-mono text-gray-300">Usually replies within 24 hours</span>
+                            </motion.div>
+                        </div>
+                    </div>
+                </motion.div>
+
                 {/* Main content - Asymmetric layout */}
                 <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
@@ -110,6 +224,49 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="lg:col-span-2 space-y-6"
                     >
+                        {/* Speech Bubble Card */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden mb-2"
+                        >
+                            {/* Ambient background glow inside card */}
+                            <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-indigo-500/10 blur-xl pointer-events-none" />
+
+                            <div className="space-y-4">
+                                {/* Title with Speech Bubble Emoji */}
+                                <div className="flex items-center gap-2.5">
+                                    <span className="text-2xl animate-[bounce_3s_infinite]">💬</span>
+                                    <h4 className="text-lg font-bold text-white tracking-wide">Let's Talk!</h4>
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-xs text-gray-400 font-light leading-relaxed">
+                                    I'm always open to discussing new projects, freelance opportunities, collaborations, or simply answering your questions.
+                                </p>
+
+                                {/* Divider */}
+                                <div className="h-px bg-white/10 my-4" />
+
+                                {/* Check List */}
+                                <ul className="space-y-2">
+                                    {[
+                                        'Friendly',
+                                        'Fast Response',
+                                        'Open to Collaboration'
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-[11px] font-mono text-gray-300">
+                                            <span className="flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">
+                                                ✓
+                                            </span>
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </motion.div>
+
                         {contactMethods.map((method, index) => (
                             <motion.a
                                 key={method.label}

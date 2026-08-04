@@ -1,7 +1,7 @@
 // components/SocialContact.jsx
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { FiInstagram, FiTwitter, FiFacebook, FiArrowUpRight } from 'react-icons/fi';
+import { FiInstagram, FiTwitter, FiFacebook, FiLinkedin, FiArrowUpRight } from 'react-icons/fi';
 
 const SocialContact = () => {
   const containerRef = useRef(null);
@@ -39,6 +39,14 @@ const SocialContact = () => {
       color: 'from-blue-600 to-blue-400',
       bgColor: 'bg-gradient-to-br from-blue-600/20 to-blue-400/20',
       url: 'https://www.facebook.com/profile.php?id=61585176428335'
+    },
+    {
+      name: 'LinkedIn',
+      icon: FiLinkedin,
+      handle: 'balajir4619',
+      color: 'from-blue-500 to-cyan-400',
+      bgColor: 'bg-gradient-to-br from-blue-500/20 to-cyan-400/20',
+      url: 'https://www.linkedin.com/in/balajir4619/'
     },
   ];
 
