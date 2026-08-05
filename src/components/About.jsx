@@ -57,7 +57,7 @@ const About = () => {
 
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-[#030303] overflow-hidden py-32 lg:py-40">
+    <section ref={containerRef} className="relative min-h-screen bg-[#030303] overflow-hidden py-24 lg:py-40">
 
       {/* Animated floating shapes */}
       <motion.div style={{ y: y1, rotate: rotate1, x: smoothMouseX }}
@@ -98,7 +98,7 @@ const About = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
 
         {/* Section Label with line animation */}
         <motion.div
@@ -121,7 +121,7 @@ const About = () => {
         {/* Main headline with staggered word reveal */}
         <div className="mb-16 overflow-hidden">
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight text-white leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight text-white leading-[1.1]"
           >
             {['Guiding', 'companies', 'with'].map((word, i) => (
               <motion.span
@@ -153,7 +153,7 @@ const About = () => {
         {/* Animated word-by-word reveal */}
         <motion.div
           ref={textRef}
-          className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light leading-relaxed mb-20 max-w-4xl"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light leading-relaxed mb-20 max-w-4xl"
         >
           {words.map((word, i) => (
             <motion.span
@@ -418,7 +418,7 @@ const About = () => {
         </div>
 
         {/* Circular Legacy Wheel Section */}
-        <div className="mt-32 pt-20 border-t border-white/5 relative flex flex-col items-center w-full overflow-hidden">
+        <div className="mt-32 pt-20 border-t border-white/5 relative flex flex-col items-center w-full overflow-hidden px-2">
           
           {/* Section background fill glows */}
           <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/5 via-blue-950/5 to-transparent pointer-events-none z-0" />
@@ -432,9 +432,19 @@ const About = () => {
             </h3>
           </div>
 
-          {/* Legacy Orbit Component Container */}
-          <div className="relative w-[560px] h-[560px] flex items-center justify-center mb-16 z-10">
-            
+          {/* Legacy Orbit Component Container — scales responsively */}
+          <div className="overflow-x-hidden w-full flex justify-center mb-16 z-10">
+            <div
+              className="relative flex items-center justify-center"
+              style={{
+                width: '560px',
+                height: '560px',
+                transform: 'scale(clamp(0.45, calc((100vw - 32px) / 560px), 1))',
+                transformOrigin: 'center center',
+                flexShrink: 0,
+              }}
+            >
+
             {/* Dashed Orbital Track Ring */}
             <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-indigo-500/25 animate-[spin_100s_linear_infinite]" />
             <div className="absolute w-[440px] h-[440px] rounded-full border border-indigo-500/15" />
@@ -524,7 +534,8 @@ const About = () => {
               );
             })}
 
-          </div>
+          </div>{/* end inner scaled div */}
+          </div>{/* end outer overflow wrapper */}
         </div>
 
         {/* Leadership Lessons Section */}

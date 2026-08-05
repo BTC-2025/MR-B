@@ -89,15 +89,15 @@ const Hero = ({ setCurrentPage }) => {
             />
 
             {/* Main content container - Diagonal split layout */}
-            <div className="relative z-10 min-h-screen flex">
+            <div className="relative z-10 min-h-screen flex flex-col lg:flex-row">
 
                 {/* Left side - Giant typography */}
-                <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20">
+                <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-12 lg:py-20">
 
                     {/* Oversized outlined text */}
                     <div className="overflow-hidden mb-8">
                         <motion.h1
-                            className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-black leading-[0.85] tracking-tighter"
+                            className="text-[15vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw] font-black leading-[0.85] tracking-tighter"
                             style={{ perspective: 1000 }}
                         >
                             {['C', 'R', 'E', 'A', 'T', 'I', 'V', 'E'].map((letter, i) => (
@@ -124,7 +124,7 @@ const Hero = ({ setCurrentPage }) => {
                             initial={{ y: 100, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight"
                         >
                             <span className="text-white">VISION</span>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">ARY</span>
@@ -151,6 +151,52 @@ const Hero = ({ setCurrentPage }) => {
                             transition={{ delay: 1.5, duration: 1 }}
                             className="h-px w-32 bg-gradient-to-r from-white to-transparent origin-left"
                         />
+                    </motion.div>
+
+                    {/* Mobile-only image — hidden on lg+ (desktop has its own panel) */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        className="block lg:hidden w-full mb-10"
+                    >
+                        <div className="relative mx-auto w-56 sm:w-72">
+                            {/* Glowing backdrop */}
+                            <div
+                                className="absolute -inset-3 rounded-2xl opacity-40 blur-xl"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(99,102,241,0.5) 0%, rgba(236,72,153,0.5) 100%)',
+                                }}
+                            />
+                            {/* Image */}
+                            <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[3/4]">
+                                <img
+                                    src={heroImage}
+                                    alt="Mr. B"
+                                    className="w-full h-full object-cover"
+                                />
+                                {/* Gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                                {/* Status badge */}
+                                <div className="absolute bottom-0 left-0 right-0 p-4">
+                                    <div className="bg-white/10 backdrop-blur-xl rounded-xl p-3 border border-white/10 text-center">
+                                        <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Status</p>
+                                        <p className="text-white font-medium flex items-center justify-center gap-2 text-sm">
+                                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                                            Available
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Floating badge */}
+                            <motion.div
+                                animate={{ y: [0, -8, 0] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                                className="absolute -top-4 -right-4 w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30"
+                            >
+                                <span className="text-white text-sm font-bold">15+</span>
+                            </motion.div>
+                        </div>
                     </motion.div>
 
                     {/* Unconventional CTA - Just text links */}
@@ -188,7 +234,7 @@ const Hero = ({ setCurrentPage }) => {
                 </div>
 
                 {/* Right side - 3D tilting image card */}
-                <div className="hidden lg:flex flex-1 items-center justify-center p-12">
+                <div className="hidden lg:flex flex-1 items-center justify-center p-8 xl:p-12">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
                         animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -211,7 +257,7 @@ const Hero = ({ setCurrentPage }) => {
 
                         {/* Image container with clip-path */}
                         <div
-                            className="relative w-[450px] h-[550px] rounded-2xl overflow-hidden border border-white/10"
+                            className="relative w-[320px] h-[390px] xl:w-[450px] xl:h-[550px] rounded-2xl overflow-hidden border border-white/10"
                             style={{
                                 transform: 'translateZ(50px)',
                             }}

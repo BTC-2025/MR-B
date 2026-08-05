@@ -60,7 +60,7 @@ const Companies = () => {
       <motion.div style={{ y: bg2Y }} className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mb-20">
         <motion.div
           style={{
             opacity: useTransform(scrollYProgress, [0, 0.15], [0, 1]),
@@ -81,7 +81,7 @@ const Companies = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="max-w-4xl mx-auto px-8 lg:px-16 mb-28 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-16 mb-28 text-center"
       >
         {/* Eyebrow line */}
         <div className="flex items-center justify-center gap-4 mb-8">
@@ -134,7 +134,7 @@ const Companies = () => {
       </motion.div>
 
       {/* Storytelling UI */}
-      <div className="max-w-6xl mx-auto px-8 lg:px-16 mb-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 mb-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +212,7 @@ const Companies = () => {
       </div>
 
       {/* Product Formula Section */}
-      <div className="max-w-4xl mx-auto px-8 lg:px-16 mb-32 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-16 mb-32 relative">
         {/* Decorative Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none z-0 opacity-15" />
         
@@ -326,7 +326,7 @@ const Companies = () => {
         </div>
       </div>
       {/* Hourglass Section */}
-      <div className="max-w-5xl mx-auto px-8 lg:px-16 mb-32 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-16 mb-32 relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -600,7 +600,7 @@ const Companies = () => {
       />
 
       {/* ============ BPictures Section ============ */}
-      <div ref={bPicturesRef} className="max-w-7xl mx-auto px-8 lg:px-16 mb-20">
+      <div ref={bPicturesRef} className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mb-20">
         <motion.div style={{ scale: bpScale }} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Visual - Slides in from left */}
@@ -684,7 +684,7 @@ const Companies = () => {
       </div>
 
       {/* Industries I Build For */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 mt-32 pt-20 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-32 pt-20 border-t border-white/5">
 
         {/* Header */}
         <motion.div

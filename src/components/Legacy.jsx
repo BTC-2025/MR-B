@@ -11,12 +11,12 @@ const Legacy = () => {
       {/* Background glow element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Impact</span>
-          <h2 className="text-5xl md:text-6xl font-extralight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight text-white">
             The Legacy <span className="font-bold bg-gradient-to-r from-amber-400 via-rose-400 to-pink-400 bg-clip-text text-transparent">I'm Building</span>
           </h2>
         </div>

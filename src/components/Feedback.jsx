@@ -32,7 +32,7 @@ const Feedback = () => {
   };
 
   return (
-    <section id="feedback" ref={containerRef} className="relative bg-[#030303] py-28 overflow-hidden min-h-screen flex items-center justify-center">
+    <section id="feedback" ref={containerRef} className="relative bg-[#030303] py-16 sm:py-28 overflow-hidden min-h-screen flex items-center justify-center">
       
       {/* Soft background grid lines */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -47,7 +47,7 @@ const Feedback = () => {
       <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-red-500/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-3xl mx-auto px-6 relative z-10">
+      <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Quote Title Block */}
         {/* Quote Title Block */}
@@ -105,7 +105,7 @@ const Feedback = () => {
             {/* Ghost large opening quote */}
             <span className="absolute -top-6 left-0 text-7xl text-white/[0.04] font-serif leading-none select-none pointer-events-none">"</span>
 
-            <p className="text-4xl md:text-5xl font-extralight text-gray-300 leading-[1.5] italic tracking-wide">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-extralight text-gray-300 leading-[1.5] italic tracking-wide">
               Feedback isn't criticism—
               <br />
               <span className="text-3xl md:text-4xl font-light not-italic text-gray-400">it's the fastest path</span>
@@ -238,7 +238,7 @@ const Feedback = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="p-8 space-y-8">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-8">
             
             {/* 1. Complaint Type Selector */}
             <div className="space-y-3">

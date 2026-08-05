@@ -60,12 +60,12 @@ const BusinessFocus = ({ setCurrentPage }) => {
       <div className="absolute top-1/4 left-1/10 w-[450px] h-[450px] bg-blue-500/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/10 w-[450px] h-[450px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-20">
           <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Focus</span>
-          <h2 className="text-5xl md:text-6xl font-extralight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight text-white mb-6">
             Business <span className="font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Focus</span>
           </h2>
           <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed text-balance">

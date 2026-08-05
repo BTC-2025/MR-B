@@ -63,7 +63,7 @@ const SocialContact = () => {
         className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none"
       />
 
-      <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
 
         {/* Header */}
         <motion.div
@@ -80,7 +80,7 @@ const SocialContact = () => {
           >
             Stay Connected
           </motion.span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-6">
             Let's be{' '}
             <span className="font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
               Social
@@ -95,7 +95,7 @@ const SocialContact = () => {
         </motion.div>
 
         {/* Social Cards - Horizontal Layout */}
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-6 lg:gap-8 justify-center">
           {socials.map((social, index) => (
             <motion.a
               key={social.name}
@@ -107,7 +107,7 @@ const SocialContact = () => {
               transition={{ duration: 0.8, delay: 0.3 + index * 0.15 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative flex-1 min-w-[280px]"
+              className="group relative w-full lg:flex-1 lg:min-w-[240px]"
             >
               {/* Card */}
               <motion.div

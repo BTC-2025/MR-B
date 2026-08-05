@@ -36,7 +36,7 @@ const Contact = () => {
     ];
 
     return (
-        <section id="contact" ref={containerRef} className="relative bg-[#030303] py-32 overflow-hidden">
+        <section id="contact" ref={containerRef} className="relative bg-[#030303] py-20 sm:py-32 overflow-hidden">
 
             {/* Animated background grid */}
             <div className="absolute inset-0 opacity-20">
@@ -65,7 +65,7 @@ const Contact = () => {
                 className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none"
             />
 
-            <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
 
                 {/* The Spark — Intro block */}
                 <motion.div
@@ -90,7 +90,7 @@ const Contact = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.7, delay: 0.2 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 leading-tight"
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 leading-tight"
                     >
                         Every Click Begins{' '}
                         <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -137,7 +137,7 @@ const Contact = () => {
                         <FiMail className="w-7 h-7 text-white" />
                     </motion.div>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-6">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-6">
                         Get in{' '}
                         <span className="font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                             Touch

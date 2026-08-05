@@ -51,12 +51,12 @@ const Milestones = () => {
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
 
         {/* Section Header */}
         <div className="text-center mb-20">
           <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">Progress</span>
-          <h2 className="text-5xl md:text-6xl font-extralight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight text-white">
             Vision<span className="font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent"> in Motion</span>
           </h2>
         </div>

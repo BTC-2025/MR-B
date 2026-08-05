@@ -11,7 +11,7 @@ const MissionVision = () => {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-pink-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Mission Card */}
