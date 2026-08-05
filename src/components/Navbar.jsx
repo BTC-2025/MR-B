@@ -13,7 +13,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-white/5 py-4 px-8 lg:px-16 flex justify-between items-center">
       <div className="flex items-center cursor-pointer" onClick={() => setCurrentPage('home')}>
-        <span className="text-white text-xl font-bold tracking-wider">Mr.B</span>
+        <span className="text-white text-xl font-bold tracking-wider">Mr.  B</span>
       </div>
 
       <div className="flex gap-8">
